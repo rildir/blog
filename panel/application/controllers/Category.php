@@ -20,6 +20,13 @@ class Category extends CI_Controller
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
 
+        // $insert = $this->category_model->add(
+        //     array(
+        //         "title" => "deneme",
+        //         "seo_url" => convertToSEO(("title"))
+        //     )
+        // );
+
         $items = $this->category_model->get_all();
         $viewData->items = $items;
 
@@ -129,6 +136,7 @@ class Category extends CI_Controller
                 ),
                 array(
                     "title" => $this->input->post("title"),
+
                     "seo_url" => convertToSEO($this->input->post("title"))
                 )
             );
@@ -159,6 +167,20 @@ class Category extends CI_Controller
 
     }
 
+    public function delete($id)
+    {
+        $delete = $this->category_model->delete(
+            array(
+                "id" => $id
+            )
+        );
+
+        if ($delete) {
+            redirect("category");
+        } else {
+            echo "silme islemi hatali";
+        }
+    }
 }
 
 ?>

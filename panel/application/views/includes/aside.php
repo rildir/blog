@@ -64,9 +64,9 @@
                 </li>
 
                 <li>
-                    <a href="javascript:void(0)">
+                    <a href="<?php echo base_url("/settings") ?>">
                         <i class="menu-icon zmdi zmdi-settings zmdi-hc-lg"></i>
-                        <span class="menu-text">Ayarlar</span>
+                        <span class="menu-text">Settings</span>
                     </a>
                 </li>
 
@@ -74,12 +74,12 @@
                 <li>
                     <a href="<?php echo base_url("/category") ?>">
                         <i class="menu-icon zmdi zmdi-layers zmdi-hc-lg"></i>
-                        <span class="menu-text">Kategori</span>
+                        <span class="menu-text">Category</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="javascript:void(0)">
+                    <a href="<?php echo base_url("/post") ?>">
                         <i class="menu-icon fa fa-cubes"></i>
                         <span class="menu-text">Post</span>
                     </a>

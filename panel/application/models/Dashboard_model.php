@@ -1,9 +1,9 @@
 <?php
 
-class Post_Model extends CI_Model
+class Dashboard_model extends CI_Model
 {
 
-    public $tableName = "post";
+    public $tableName = "todo_list";
 
     public function __construct()
     {
