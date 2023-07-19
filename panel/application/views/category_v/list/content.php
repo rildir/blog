@@ -32,9 +32,12 @@
                                             class="fa fa-trash"></i>
                                         Sil</button>
 
-                                    <a href=""><button type="button" class="btn btn-xs btn-warning"><i
-                                                class="fa fa-pencil-square-o"></i>
-                                            Düzenle</button></a>
+                                    <a href="<?php echo base_url("category/update_category/$item->id") ?>">
+                                        <button type="button" class="btn btn-xs btn-warning">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                            Düzenle
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         <?php } ?>
