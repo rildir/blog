@@ -13,7 +13,6 @@
                         <th>id</th>
                         <th>title</th>
                         <th>seo-url</th>
-                        <th>active</th>
                         <th>action</th>
                     </thead>
                     <tbody class="sortable" data-url="">
@@ -27,9 +26,6 @@
                                 </td>
                                 <td>
                                     <?php echo $item->seo_url; ?>
-                                </td>
-                                <td>
-                                    <?php echo $item->isActive; ?>
                                 </td>
                                 <td>
                                     <button data-url="" type="button" class="btn btn-xs btn-danger remove-btn"><i

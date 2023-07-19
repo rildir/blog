@@ -41,7 +41,49 @@ class Category extends CI_Controller
 
     public function save()
     {
-        echo "saved";
+        $this->load->library("form_validation");
+
+        // kurallar yazılır
+        $this->form_validation->set_rules("title", "Title", "required|trim");
+
+        $this->form_validation->set_message(
+            array(
+                "required" => "<b>{field}</b> can't be empty"
+            )
+        );
+
+        // form validation çalıştırılır
+        $validate = $this->form_validation->run();
+
+        if ($validate) {
+
+
+            $insert = $this->category_model->add(
+                array(
+                    "title" => $this->input->post("title"),
+                    "seo_url" => convertToSEO($this->input->post("title"))
+                )
+            );
+
+            if ($insert) {
+                redirect("category");
+            } else {
+                echo "kayit islemi hatali";
+            }
+
+
+        } else {
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "add";
+            $viewData->form_error = "";
+
+            // $items = $this->category_model->add();
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+        }
+
     }
 
 

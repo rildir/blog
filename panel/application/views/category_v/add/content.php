@@ -12,6 +12,11 @@
                     <div class="form-group">
                         <label>Title</label>
                         <input type=" text" class="form-control" placeholder="Title" name="title">
+                        <?php if (isset($form_error)) { ?>
+                            <small class=" input-form-error">
+                                <?php echo form_error("title"); ?>
+                            </small>
+                        <?php } ?>
                     </div>
                     <button type="submit" class="btn btn-primary btn-md btn-outline">Save</button>
                     <a href="<?php echo base_url("category") ?>" class="btn btn-md btn-danger btn-outline">Cancel</a>
