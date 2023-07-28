@@ -7,8 +7,8 @@
     <div class="col-md-12">
         <div class="widget">
             <div class="widget-body">
-                <a href="">Add new</a>
-                <table class="table table-hover">
+                <a href="<?php echo base_url("post/new_post") ?>">Add new</a>
+                <table class="table table-hover table-bordered content-container">
                     <thead>
                         <th>id</th>
                         <th>title</th>
@@ -32,13 +32,13 @@
                                 </td>
                                 <td>
 
-                                    <button data-url="" type="button" class="btn btn-xs btn-danger remove-btn"><i
-                                            class="fa fa-trash"></i>
-                                            Delete
+                                    <button data-url="<?php echo base_url("post/delete/$item->id") ?>" type="button"
+                                        class="btn btn-xs btn-danger remove-btn"><i class="fa fa-trash"></i>
+                                        Delete
                                     </button>
 
 
-                                    <a href="">
+                                    <a href="<?php echo base_url("post/update_post/$item->id") ?>">
                                         <button type="button" class="btn btn-xs btn-warning">
                                             <i class="fa fa-pencil-square-o"></i>
                                             Edit

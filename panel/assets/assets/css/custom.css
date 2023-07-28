@@ -3,3 +3,6 @@
   color: #ff5b5b;
   font-style: italic;
 }
+th {
+  text-transform: capitalize;
+}

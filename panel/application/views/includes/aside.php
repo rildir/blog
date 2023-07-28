@@ -1,3 +1,5 @@
+<?php $user = get_active_user(); ?>
+
 <aside id="menubar" class="menubar light">
     <div class="app-user">
         <div class="media">
@@ -9,12 +11,16 @@
             </div>
             <div class="media-body">
                 <div class="foldable">
-                    <h5><a href="javascript:void(0)" class="username">Recep Ildır</a></h5>
+                    <h5><a href="javascript:void(0)" class="username">
+                            <?php echo $user->full_name; ?>
+                        </a></h5>
                     <ul>
                         <li class="dropdown">
                             <a href="javascript:void(0)" class="dropdown-toggle usertitle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <small>Web Developer</small>
+                                <small>
+                                    <?php echo $user->job; ?>
+                                </small>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu animated flipInY">
@@ -30,17 +36,11 @@
                                         <span>Profile</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="text-color" href="settings.html">
-                                        <span class="m-r-xs"><i class="fa fa-gear"></i></span>
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
                                 <li role="separator" class="divider"></li>
                                 <li>
-                                    <a class="text-color" href="logout.html">
+                                    <a class="text-color" href="<?php echo base_url("logout"); ?>">
                                         <span class="m-r-xs"><i class="fa fa-power-off"></i></span>
-                                        <span>Home</span>
+                                        <span>Log out</span>
                                     </a>
                                 </li>
                             </ul>
@@ -82,6 +82,13 @@
                     <a href="<?php echo base_url("/post") ?>">
                         <i class="menu-icon fa fa-cubes"></i>
                         <span class="menu-text">Post</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?php echo base_url("/users") ?>">
+                        <i class="menu-icon fa fa-user-secret"></i>
+                        <span class="menu-text">Kullanıcılar</span>
                     </a>
                 </li>
                 <!-- 

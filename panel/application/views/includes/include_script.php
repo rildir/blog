@@ -9,6 +9,7 @@
 <!-- endbuild -->
 
 <!-- build:js <?php echo base_url("assets"); ?>/assets/js/app.min.js -->
+<script src="<?php echo base_url("assets"); ?>/assets/js/dropzone.min.js"></script>
 <script src="<?php echo base_url("assets"); ?>/assets/js/library.js"></script>
 <script src="<?php echo base_url("assets"); ?>/assets/js/plugins.js"></script>
 <script src="<?php echo base_url("assets"); ?>/assets/js/app.js"></script>
@@ -21,3 +22,5 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>

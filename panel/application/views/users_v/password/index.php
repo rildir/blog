@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <?php $this->load->view("includes/head"); ?>
-    <?php $this->load->view("{$viewFolder}/{$subViewFolder}/page_script"); ?>
 </head>
 
 <body class="menubar-left menubar-unfold menubar-light theme-primary">
-    <!--============= start main area -->
+<!--============= start main area -->
 
     <!-- APP NAVBAR ==========-->
     <?php $this->load->view("includes/navbar"); ?>
@@ -36,7 +34,7 @@
     <!--========== END app main -->
 
     <?php $this->load->view("includes/include_script"); ?>
+    <?php $this->load->view("{$viewFolder}/{$subViewFolder}/page_script"); ?>
 
 </body>
-
 </html>

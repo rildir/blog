@@ -8,7 +8,7 @@
         <div class="widget">
             <div class="widget-body">
                 <a href="<?php echo base_url("category/new_category") ?>">Add new</a>
-                <table class="table table-hover">
+                <table class="table table-hover table-bordered content-container">
                     <thead>
                         <th>id</th>
                         <th>title</th>

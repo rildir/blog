@@ -1,13 +1,14 @@
 <?php
 
-class Post_Model extends CI_Model
+class User_model extends CI_Model
 {
 
-    public $tableName = "post";
+    public $tableName = "users";
 
     public function __construct()
     {
         parent::__construct();
+
     }
 
     public function get($where = array())
@@ -15,14 +16,14 @@ class Post_Model extends CI_Model
         return $this->db->where($where)->get($this->tableName)->row();
     }
 
-    public function get_all($where = array())
+    /** Tüm Kayıtları bana getirecek olan metot.. */
+    public function get_all($where = array(), $order = "id ASC")
     {
-        return $this->db->where($where)->get($this->tableName)->result();
+        return $this->db->where($where)->order_by($order)->get($this->tableName)->result();
     }
 
     public function add($data = array())
     {
-        // nereye neyi kaydedecegim?
         return $this->db->insert($this->tableName, $data);
     }
 
@@ -35,4 +36,5 @@ class Post_Model extends CI_Model
     {
         return $this->db->where($where)->delete($this->tableName);
     }
+
 }

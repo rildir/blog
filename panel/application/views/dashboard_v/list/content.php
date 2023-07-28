@@ -8,11 +8,12 @@
         <div class="widget">
             <div class="widget-body">
                 <a href="<?php echo base_url("dashboard/new_todo") ?>">Add new</a>
-                <table class="table table-hover">
+                <table class="table table-hover table-bordered content-container">
                     <thead>
-                        <th>id</th>
-                        <th>title</th>
-                        <th>description</th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Action</th>
                     </thead>
                     <tbody class="sortable" data-url="">
                         <?php foreach ($items as $item) { ?>

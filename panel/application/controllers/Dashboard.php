@@ -5,6 +5,7 @@ class Dashboard extends CI_Controller
 {
 
     public $viewFolder = "";
+    public $user;
 
     public function __construct()
     {
@@ -12,6 +13,11 @@ class Dashboard extends CI_Controller
 
         $this->viewFolder = "dashboard_v";
         $this->load->model("dashboard_model");
+
+        // $this->user = get_active_user();
+        if (!get_active_user()) {
+            redirect(base_url("login"));
+        }
     }
 
     public function index()

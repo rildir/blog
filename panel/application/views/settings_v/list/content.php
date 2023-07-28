@@ -7,29 +7,26 @@
     <div class="col-md-12">
         <div class="widget">
             <div class="widget-body">
-                <table class="table table-hover">
+                <table class="table table-hover table-bordered content-container">
                     <thead>
-                        <th>id</th>
-                        <th>title</th>
-                        <th>about_us</th>
+                        <th>Title</th>
+                        <th>About us</th>
                         <th>mission</th>
                         <th>vision</th>
                         <th>logo</th>
                         <th>phone</th>
                         <th>email</th>
                         <th>facebook</th>
-                        <th>instagram</th>
+                        <th>onstagram</th>
                         <th>github</th>
                         <th>linkedin</th>
                         <th>twitter</th>
                         <th>youtube</th>
+                        <th>Action</th>
                     </thead>
                     <tbody class="sortable" data-url="">
                         <?php foreach ($items as $item) { ?>
                             <tr>
-                                <td>
-                                    <?php echo $item->id; ?>
-                                </td>
                                 <td>
                                     <?php echo $item->title; ?>
                                 </td>
