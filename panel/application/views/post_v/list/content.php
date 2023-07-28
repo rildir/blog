@@ -44,6 +44,8 @@
                                             Edit
                                         </button>
                                     </a>
+                                    <a href="<?php echo base_url("post/image_form/$item->id"); ?>"
+                                        class="btn btn-sm btn-dark btn-outline"><i class="fa fa-image"></i> Resimler</a>
                                 </td>
                             </tr>
                         <?php } ?>

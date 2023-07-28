@@ -11,6 +11,7 @@ class Post extends CI_Controller
 
         $this->viewFolder = "post_v";
         $this->load->model("post_model");
+        $this->load->model("post_image_model");
 
         if (!get_active_user()) {
             redirect(base_url("login"));
@@ -180,6 +181,55 @@ class Post extends CI_Controller
         } else {
             echo "silme islemi hatali";
         }
+    }
+
+    public function image_form($id)
+    {
+        $viewData = new stdClass();
+
+        /** View'e gönderilecek Değişkenlerin Set Edilmesi.. */
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "image";
+
+        $viewData->item = $this->post_model->get(
+            array(
+                "id" => $id
+            )
+        );
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+    }
+
+    public function image_upload($id)
+    {
+        $file_name = convertToSEO(pathinfo($_FILES["file"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+
+        $config["allowed_types"] = "jpg|jpeg|png";
+        $config["upload_path"] = "uploads/$this->viewFolder/";
+        $config["file_name"] = $file_name;
+
+        $this->load->library("upload", $config);
+
+        $upload = $this->upload->do_upload("file");
+
+        if ($upload) {
+
+            $uploaded_file = $this->upload->data("file_name");
+
+            $this->post_image_model->add(
+                array(
+                    "img_url" => $uploaded_file,
+                    "rank" => 0,
+                    "isActive" => 1,
+                    "isCover" => 0,
+                    "createdAt" => date("Y-m-d H:i:s"),
+                    "post_id" => $id
+                )
+            );
+        } else {
+            echo "hatalı";
+        }
+
     }
 
 }
