@@ -28,7 +28,7 @@
                                     <?php echo $item->description; ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->img_url; ?>
+                                    <img src="<?php echo base_url("uploads/post_v/$item->img_url") ?>" alt="">
                                 </td>
                                 <td>
 
@@ -44,8 +44,6 @@
                                             Edit
                                         </button>
                                     </a>
-                                    <a href="<?php echo base_url("post/image_form/$item->id"); ?>"
-                                        class="btn btn-sm btn-dark btn-outline"><i class="fa fa-image"></i> Resimler</a>
                                 </td>
                             </tr>
                         <?php } ?>

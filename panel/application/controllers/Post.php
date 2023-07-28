@@ -11,7 +11,6 @@ class Post extends CI_Controller
 
         $this->viewFolder = "post_v";
         $this->load->model("post_model");
-        $this->load->model("post_image_model");
 
         if (!get_active_user()) {
             redirect(base_url("login"));
@@ -45,9 +44,6 @@ class Post extends CI_Controller
     {
         $this->load->library("form_validation");
 
-
-
-        // kurallar yazılır
         $this->form_validation->set_rules("title", "Title", "required|trim");
         $this->form_validation->set_rules("description", "Description", "required|trim");
 
@@ -57,28 +53,41 @@ class Post extends CI_Controller
             )
         );
 
-        // form validation çalıştırılır
         $validate = $this->form_validation->run();
 
         if ($validate) {
 
+            $config['upload_path'] = 'uploads/post_v';
+            $config['allowed_types'] = '*';
 
-            $insert = $this->post_model->add(
-                array(
-                    "title" => $this->input->post("title"),
-                    "description" => $this->input->post("description"),
-                    "img_url" => $this->input->post("img_url"),
-                    "seo_url" => convertToSEO($this->input->post("title"))
-                )
-            );
+            $this->load->library('upload', $config);
 
-            if ($insert) {
-                redirect("post");
+            if (!$this->upload->do_upload('file')) {
+                echo "hatalı";
             } else {
-                echo "something wrong";
+                // Dosya başarıyla yüklendiğinde dosya bilgilerini alalım
+                $file_data = $this->upload->data();
+
+                // Dosyanın adı ve yolu
+                $file_name = $file_data['file_name'];
+
+                // Veritabanına kaydedelim
+                $insert = $this->post_model->add(
+                    array(
+                        "title" => $this->input->post("title"),
+                        "description" => $this->input->post("description"),
+                        "img_url" => $file_name,
+                        // Yüklenen dosyanın adını burada kaydediyoruz
+                        "seo_url" => convertToSEO($this->input->post("title"))
+                    )
+                );
+
+                if ($insert) {
+                    redirect("post");
+                } else {
+                    echo "something wrong";
+                }
             }
-
-
         } else {
             $viewData = new stdClass();
 
@@ -88,8 +97,8 @@ class Post extends CI_Controller
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }
-
     }
+
 
     public function update_post($id)
     {
@@ -183,53 +192,48 @@ class Post extends CI_Controller
         }
     }
 
-    public function image_form($id)
-    {
-        $viewData = new stdClass();
+    // yedeksave{
+    //     $this->load->library("form_validation");
 
-        /** View'e gönderilecek Değişkenlerin Set Edilmesi.. */
-        $viewData->viewFolder = $this->viewFolder;
-        $viewData->subViewFolder = "image";
+    //     // kurallar yazılır
+    //     $this->form_validation->set_rules("title", "Title", "required|trim");
+    //     $this->form_validation->set_rules("description", "Description", "required|trim");
 
-        $viewData->item = $this->post_model->get(
-            array(
-                "id" => $id
-            )
-        );
+    //     $this->form_validation->set_message(
+    //         array(
+    //             "required" => "<b>{field}</b> can't be empty"
+    //         )
+    //     );
 
-        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
-    }
+    //     // form validation çalıştırılır
+    //     $validate = $this->form_validation->run();
 
-    public function image_upload($id)
-    {
-        $file_name = convertToSEO(pathinfo($_FILES["file"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+    //     if ($validate) {
 
-        $config["allowed_types"] = "jpg|jpeg|png";
-        $config["upload_path"] = "uploads/$this->viewFolder/";
-        $config["file_name"] = $file_name;
 
-        $this->load->library("upload", $config);
+    //         $insert = $this->post_model->add(
+    //             array(
+    //                 "title" => $this->input->post("title"),
+    //                 "description" => $this->input->post("description"),
+    //                 "img_url" => $this->input->post("img_url"),
+    //                 "seo_url" => convertToSEO($this->input->post("title"))
+    //             )
+    //         );
 
-        $upload = $this->upload->do_upload("file");
+    //         if ($insert) {
+    //             redirect("post");
+    //         } else {
+    //             echo "something wrong";
+    //         }
 
-        if ($upload) {
 
-            $uploaded_file = $this->upload->data("file_name");
+    //     } else {
+    //         $viewData = new stdClass();
 
-            $this->post_image_model->add(
-                array(
-                    "img_url" => $uploaded_file,
-                    "rank" => 0,
-                    "isActive" => 1,
-                    "isCover" => 0,
-                    "createdAt" => date("Y-m-d H:i:s"),
-                    "post_id" => $id
-                )
-            );
-        } else {
-            echo "hatalı";
-        }
+    //         $viewData->viewFolder = $this->viewFolder;
+    //         $viewData->subViewFolder = "add";
+    //         $viewData->form_error = "";
 
-    }
-
+    //         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+    //     }}
 }

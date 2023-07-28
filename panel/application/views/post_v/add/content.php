@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="widget">
             <div class="widget-body">
-                <form action=" <?php echo base_url("/post/save") ?> " method="POST">
+                <form action=" <?php echo base_url("/post/save") ?> " method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Title</label>
                         <input type="text" class="form-control" placeholder="Title" name="title">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label>Image</label>
-                        <input type="file" class="form-control" placeholder="Image" name="img_url">
+                        <input type="file" class="form-control" placeholder="Image" name="file">
 
                     </div>
                     <button type="submit" class="btn btn-primary btn-md btn-outline">Save</button>
