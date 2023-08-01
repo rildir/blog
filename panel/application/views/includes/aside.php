@@ -25,7 +25,7 @@
                             </a>
                             <ul class="dropdown-menu animated flipInY">
                                 <li>
-                                    <a class="text-color" href="/index.html">
+                                    <a class="text-color" href="../site/homepage">
                                         <span class="m-r-xs"><i class="fa fa-home"></i></span>
                                         <span>Home</span>
                                     </a>

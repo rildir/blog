@@ -17,6 +17,21 @@
                             </small>
                         <?php } ?>
                     </div>
+
+                    <select name="category_id" class="js-example-disabled-results">
+                        <?php foreach ($category_items as $category) { ?>
+                            <option value="<?php echo $category->id; ?>">
+                                <?php echo $category->title; ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+
+
+                    <script>
+                        var $disabledResults = $(".js-example-disabled-results");
+                        $disabledResults.select2();
+                    </script>
+
                     <div class="form-group">
                         <label>Description</label>
                         <textarea id="summernote" name="description" class="m-0" data-plugin="summernote"

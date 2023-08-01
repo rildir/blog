@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <?php $this->load->view("includes/head"); ?>
 </head>
 
 <body class="menubar-left menubar-unfold menubar-light theme-primary">
-<!--============= start main area -->
+    <!--============= start main area -->
 
     <!-- APP NAVBAR ==========-->
     <?php $this->load->view("includes/navbar"); ?>
@@ -36,4 +37,5 @@
     <?php $this->load->view("includes/include_script"); ?>
 
 </body>
+
 </html>

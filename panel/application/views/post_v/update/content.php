@@ -7,7 +7,8 @@
     <div class="col-md-12">
         <div class="widget">
             <div class="widget-body">
-                <form action=" <?php echo base_url("/post/update/$item->id") ?> " method="POST">
+                <form action=" <?php echo base_url("/post/update/$item->id") ?> " method="POST"
+                    enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Title</label>
                         <input type="text" class="form-control" value="<?php echo $item->title ?>" name="title">
@@ -39,10 +40,24 @@
                     </div>
                     <div class="form-group">
                         <label>Image</label>
-                        <input type="file" class="form-control" value="<?php echo $item->img_url ?>" name="img_url">
-                        <!-- <input type="text" class="form-control" value="<?php echo $item->img_url ?>" name="img_url"> -->
-
+                        <input type="file" class="form-control" name="img_url" id="img_url">
+                        <?php if ($item->img_url) { ?>
+                            <img id="blah" src="<?php echo base_url("uploads/post_v/$item->img_url"); ?>" alt="Image"
+                                width="150">
+                        <?php } ?>
                     </div>
+                    <script>
+                        var imgInp = document.getElementById("img_url");
+                        var blah = document.getElementById("blah");
+                        imgInp.onchange = evt => {
+                            const [file] = imgInp.files
+                            if (file) {
+                                blah.src = URL.createObjectURL(file)
+                            }
+                        }
+                    </script>
+
+
                     <button type="submit" class="btn btn-primary btn-md btn-outline">Update</button>
                     <a href="<?php echo base_url("post") ?>" class="btn btn-md btn-danger btn-outline">Cancel</a>
                 </form>

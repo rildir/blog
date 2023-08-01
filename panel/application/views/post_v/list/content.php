@@ -28,7 +28,8 @@
                                     <?php echo $item->description; ?>
                                 </td>
                                 <td>
-                                    <img src="<?php echo base_url("uploads/post_v/$item->img_url") ?>" alt="">
+                                    <img class="post_images" src="<?php echo base_url("uploads/post_v/$item->img_url") ?>"
+                                        alt="<?php echo base_url("uploads/post_v/$item->img_url") ?>">
                                 </td>
                                 <td>
 

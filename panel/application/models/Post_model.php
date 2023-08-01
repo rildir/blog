@@ -22,7 +22,6 @@ class Post_Model extends CI_Model
 
     public function add($data = array())
     {
-        // nereye neyi kaydedecegim?
         return $this->db->insert($this->tableName, $data);
     }
 
@@ -31,8 +30,15 @@ class Post_Model extends CI_Model
         return $this->db->where($where)->update($this->tableName, $data);
     }
 
+    public function editPost($id)
+    {
+        $query = $this->db->get_where('post', ['id' => $id]);
+        return $query->row();
+    }
+
     public function delete($where = array())
     {
         return $this->db->where($where)->delete($this->tableName);
     }
+    
 }

@@ -1,50 +1,50 @@
-.menubar{
+.menubar {
   position: fixed;
   left: 0;
   top: $navbar-height;
   opacity: 0;
   z-index: 999;
-  transition: opacity $opacity-transition-time, left .2s ease-in-out, top .5s;
-  
-  &.in{
+  transition: opacity $opacity-transition-time, left 0.2s ease-in-out, top 0.5s;
+
+  &.in {
     opacity: 1;
   }
 
-  body.menubar-unfold &{
+  body.menubar-unfold & {
     width: $menubar-unfold-width;
   }
 
-  body.menubar-left &{
+  body.menubar-left & {
     bottom: 0;
     padding-top: 20px;
     padding-bottom: 20px;
     height: calc(100% - #{$navbar-height});
   }
 
-  @media(max-width: $grid-float-breakpoint-max) {
-    left: - ($menubar-unfold-width + 2);
+  @media (max-width: $grid-float-breakpoint-max) {
+    left: -($menubar-unfold-width + 2);
 
-    body.menubar-in &{
+    body.menubar-in & {
       left: 0;
     }
 
-    body.navbar-collapse-in &{
+    body.navbar-collapse-in & {
       top: $navbar-height * 2;
       height: calc(100% - #{$navbar-height * 2});
     }
   }
 
-  @media(min-width: $grid-float-breakpoint) {
-    body.menubar-fold &{
+  @media (min-width: $grid-float-breakpoint) {
+    body.menubar-fold & {
       position: absolute;
       width: $menubar-fold-width;
     }
 
-    body.menubar-top &{
+    body.menubar-top & {
       right: 0;
       width: 100%;
       height: $menubar-top-height;
-      .menubar-scroll{
+      .menubar-scroll {
         display: inline-block;
       }
     }
@@ -52,69 +52,69 @@
 }
 
 // light menubar
-.menubar.light{
+.menubar.light {
   background: #fff;
 
-  body.menubar-left &{
-    @include box-shadow(2px 0 4px rgba(0,0,0,.08));
+  body.menubar-left & {
+    @include box-shadow(2px 0 4px rgba(0, 0, 0, 0.08));
   }
 
-  body.menubar-top &{
-    @include box-shadow(0 2px 4px rgba(0, 0, 0, .08));
+  body.menubar-top & {
+    @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
   }
 }
 
 // dark menubar
-.menubar.dark{
+.menubar.dark {
   background: $inverse;
 }
 
 // app user
-.app-user{
+.app-user {
   padding-right: 16px;
   padding-left: 16px;
   display: inline-block;
 
   .media,
-  .media-body{
+  .media-body {
     overflow: visible;
   }
 
-  .media-left{
+  .media-left {
     position: relative;
     vertical-align: middle;
     padding-top: 4px;
   }
 
-  .media-body{
+  .media-body {
     display: none;
   }
-  
-  .dropdown-menu{
+
+  .dropdown-menu {
     left: 0;
     right: auto;
   }
-  
-  .avatar{
+
+  .avatar {
     position: static;
     margin: 0;
   }
 
-  @media(min-width: $grid-float-breakpoint){
-    body.menubar-left .menubar &{
+  @media (min-width: $grid-float-breakpoint) {
+    body.menubar-left .menubar & {
       margin-bottom: 20px;
     }
-    
-    body.menubar-unfold &{
-      .media-body{
+
+    body.menubar-unfold & {
+      .media-body {
         display: table-cell;
       }
-      
-      .media-left{
+
+      .media-left {
         padding-top: 0;
       }
 
-      .avatar{
+      .avatar {
         margin-right: 16px;
       }
 
@@ -123,41 +123,41 @@
       }
     }
 
-    .navbar-collapse &{
+    .navbar-collapse & {
       display: none !important;
     }
 
-    body.menubar-top &{
+    body.menubar-top & {
       height: $menubar-top-height;
       float: right;
       width: 82px;
-      
-      .media-left{
+
+      .media-left {
         height: $menubar-top-height;
       }
 
-      .dropdown-menu{
+      .dropdown-menu {
         left: auto;
         right: 0;
       }
     }
   }
 
-  @media(max-width: $grid-float-breakpoint-max){
-    .menubar &{
+  @media (max-width: $grid-float-breakpoint-max) {
+    .menubar & {
       display: none;
     }
 
-    .navbar-collapse &{
+    .navbar-collapse & {
       height: $navbar-height;
       width: 74px;
       float: left;
-      
-      .media-left{
+
+      .media-left {
         height: $navbar-height;
       }
 
-      .avatar{
+      .avatar {
         width: 42px;
         height: 42px;
       }
@@ -165,63 +165,69 @@
   }
 }
 
-
-.app-user{
+.app-user {
   // specific for light menubar
-  .menubar.light &{
-    .username { color: #333333; }
-    .usertitle { color: $text-color; }
+  .menubar.light & {
+    .username {
+      color: #333333;
+    }
+    .usertitle {
+      color: $text-color;
+    }
   }
-  
+
   // specific for dark menubar
-  .menubar.dark &{
-    .username { color: #fff; }
-    .usertitle { color: #eee; }
+  .menubar.dark & {
+    .username {
+      color: #fff;
+    }
+    .usertitle {
+      color: #eee;
+    }
   }
 }
 
-.menubar-scroll{
-  body.menubar-unfold &{
+.menubar-scroll {
+  body.menubar-unfold & {
     position: relative;
-    
-    .menubar-scroll-inner{
+
+    .menubar-scroll-inner {
       position: relative;
       height: 100%;
     }
   }
 
-  @media(min-width: $grid-float-breakpoint) {
-    body.menubar-unfold &{
+  @media (min-width: $grid-float-breakpoint) {
+    body.menubar-unfold & {
       height: calc(100% - 75px);
     }
 
-    body.menubar-fold &{
-      .menubar-scroll-inner{
+    body.menubar-fold & {
+      .menubar-scroll-inner {
         height: auto !important;
       }
     }
   }
 
-  @media(max-width: $grid-float-breakpoint-max) {
-    body.menubar-unfold &{
+  @media (max-width: $grid-float-breakpoint-max) {
+    body.menubar-unfold & {
       height: 100%;
     }
   }
 }
 
-
-.app-menu{
+.app-menu {
   a {
     display: block;
     padding: 10px 16px;
-    font-size: .875rem;
+    font-size: 0.875rem;
   }
 
   .menu-icon {
     display: inline-block;
     width: 1rem;
     margin-right: 8px;
-    transition: margin-right .5s ease;
+    transition: margin-right 0.5s ease;
   }
 
   .menu-text {
@@ -232,15 +238,15 @@
     float: right;
     font-size: 1rem;
     backface-visibility: hidden;
-    transition: transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
   }
 
   .menu-label {
     float: right;
-    padding: .2em .8em .4em;
+    padding: 0.2em 0.8em 0.4em;
   }
-  
-  .menu-label ~ .menu-caret{
+
+  .menu-label ~ .menu-caret {
     display: none;
   }
 
@@ -252,50 +258,58 @@
     width: 220px;
     display: none;
   }
-  
-  body.menubar-left &{
+
+  body.menubar-left & {
     .open > a > .menu-caret {
       transform: rotate(90deg);
     }
-    
+
     > li {
       border-left: 3px solid transparent;
     }
 
-    > li > a{
+    > li > a {
       padding-top: 13px;
       padding-bottom: 13px;
     }
 
-    .more-items-li{
+    .more-items-li {
       display: none;
     }
   }
 
   // specific for unfolded menubar
   body.menubar-unfold & {
-    li.menu-heading{ display: none; }
+    li.menu-heading {
+      display: none;
+    }
 
-    .submenu{
+    .submenu {
       box-shadow: none;
       width: 100%;
     }
 
-    .submenu .menu-text{
+    .submenu .menu-text {
       margin-left: 30px;
     }
-    .submenu .menu-icon+.menu-text{
+    .submenu .menu-icon + .menu-text {
       margin-left: 0;
     }
   }
-  
-  @media(min-width: $grid-float-breakpoint) {
-    body.menubar-fold &{
+
+  @media (min-width: $grid-float-breakpoint) {
+    body.menubar-fold & {
       > li > a {
-        > .menu-text{ display: none; }
-        > .menu-caret { display: none; }
-        > .menu-label { display: none; }
-        > .menu-icon{
+        > .menu-text {
+          display: none;
+        }
+        > .menu-caret {
+          display: none;
+        }
+        > .menu-label {
+          display: none;
+        }
+        > .menu-icon {
           display: block;
           text-align: center;
           width: 100%;
@@ -308,7 +322,7 @@
       }
 
       // to prevent the submenu from being displayed automatically when the fold toggle
-      > li > .submenu{
+      > li > .submenu {
         display: none !important;
       }
 
@@ -322,25 +336,27 @@
         top: 0;
       }
 
-      > li > .submenu a{
+      > li > .submenu a {
         padding-left: 24px;
         padding-right: 24px;
       }
 
-      .submenu > li.menu-heading{ border-bottom: 1px solid transparent; }
+      .submenu > li.menu-heading {
+        border-bottom: 1px solid transparent;
+      }
 
-      li.menu-heading > a{
+      li.menu-heading > a {
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 1px;
       }
     }
 
-    body.menubar-top &{
+    body.menubar-top & {
       display: inline-block;
       float: left;
-      
-      > li:nth-child(n+7) {
+
+      > li:nth-child(n + 7) {
         display: none;
       }
 
@@ -349,7 +365,7 @@
         float: left;
       }
 
-      > li > a{
+      > li > a {
         height: $menubar-top-height;
         padding: 20px 16px;
         text-align: center;
@@ -359,31 +375,31 @@
         display: block;
         width: 100%;
         font-size: 20px;
-        margin-bottom: 8px
+        margin-bottom: 8px;
       }
-      
+
       > li > a > .menu-text {
         display: block;
       }
 
       > li > a > .menu-label,
       > li > a > .menu-caret {
-        display: none
+        display: none;
       }
 
       .has-submenu {
         position: relative;
       }
-      
-      .submenu{
+
+      .submenu {
         position: absolute;
         left: 100%;
         top: 0;
         padding-top: 5px;
         padding-bottom: 5px;
       }
-      
-      .open > .submenu{
+
+      .open > .submenu {
         display: block;
       }
 
@@ -392,7 +408,7 @@
         left: 0;
       }
 
-      > .menu-separator{
+      > .menu-separator {
         display: none;
       }
     }
@@ -400,80 +416,98 @@
 }
 
 // app-menu theming
-.app-menu{
+.app-menu {
   // general styles
-  a { color: $text-color; }
+  a {
+    color: $text-color;
+  }
 
   li.open > a,
   li.active > a,
   li:hover > a,
-  li.menu-heading > a{
+  li.menu-heading > a {
     color: $primary;
   }
-  
+
   // specific for menubar-left
-  body.menubar-left &{
+  body.menubar-left & {
     li.open,
-    li.active{
+    li.active {
       border-left-color: $primary;
     }
   }
 
   //specific for light menubar
-  .menubar.light &{
+  .menubar.light & {
     li.open,
     li.active,
     li:hover,
-    li.menu-heading{
-      background-color: rgba($watermark, .5);
+    li.menu-heading {
+      background-color: rgba($watermark, 0.5);
     }
   }
-  
+
   //specific for dark menubar
-  .menubar.dark &{
-    a { color: $text-white; }
+  .menubar.dark & {
+    a {
+      color: $text-white;
+    }
 
     li.open,
     li.active,
     li:hover,
-    li.menu-heading{
-      background-color: rgba(darken($inverse, 7%), .5);
+    li.menu-heading {
+      background-color: rgba(darken($inverse, 7%), 0.5);
     }
   }
-  
+
   // specific for fold light menubar
-  body.menubar-fold .menubar.light &{
-    > li.open{ border-bottom-color: $watermark; }
-
-    > li > .submenu{
-      background-color: #fff;
-      @include box-shadow(2px 1px 2px rgba(0,0,0,.08));
+  body.menubar-fold .menubar.light & {
+    > li.open {
+      border-bottom-color: $watermark;
     }
 
-    .submenu > li.menu-heading{ border-bottom-color: $watermark; }
+    > li > .submenu {
+      background-color: #fff;
+      @include box-shadow(2px 1px 2px rgba(0, 0, 0, 0.08));
+    }
+
+    .submenu > li.menu-heading {
+      border-bottom-color: $watermark;
+    }
   }
-  
+
   // specific for top light menubar
-  body.menubar-top .menubar.light &{
-    .submenu{
+  body.menubar-top .menubar.light & {
+    .submenu {
       background-color: #fff;
-      @include box-shadow(5px 5px 5px rgba(0,0,0,.08));
+      @include box-shadow(5px 5px 5px rgba(0, 0, 0, 0.08));
     }
   }
-  
+
   // specific for fold dark menubar
-  body.menubar-fold .menubar.dark &{
-    > li.open{ border-bottom-color: darken($inverse, 7%); }
+  body.menubar-fold .menubar.dark & {
+    > li.open {
+      border-bottom-color: darken($inverse, 7%);
+    }
 
-    > li > .submenu{ background-color: $inverse; }
-    
-    .submenu > li.menu-heading{ border-bottom-color: darken($inverse, 7%); }
+    > li > .submenu {
+      background-color: $inverse;
+    }
 
-    hr { border-color: #777; }
+    .submenu > li.menu-heading {
+      border-bottom-color: darken($inverse, 7%);
+    }
+
+    hr {
+      border-color: #777;
+    }
   }
-  
+
   // specific for top dark menubar
-  body.menubar-top .menubar.dark &{
-    .submenu{ background-color: $inverse; }
+  body.menubar-top .menubar.dark & {
+    .submenu {
+      background-color: $inverse;
+    }
   }
 }
