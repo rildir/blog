@@ -12,9 +12,24 @@
                         <label>Title</label>
                         <input type="text" class="form-control" value="<?php echo $item->title ?>" name="title">
                     </div>
+
                     <div class="form-group">
                         <label>About us</label>
-                        <input type="text" class="form-control" value="<?php echo $item->about_us ?>" name="about_us">
+                        <textarea id="summernote" name="about_us" class="m-0" data-plugin="summernote"
+                            data-options="{height: 250}"><?php echo $item->about_us ?></textarea>
+                        <script>
+                            $('#summernote').summernote({
+                                placeholder: 'about_us',
+                                tabsize: 2,
+                                height: 100
+                            });
+                        </script>
+
+                        <?php if (isset($form_error)) { ?>
+                            <small class=" input-form-error">
+                                <?php echo form_error("description"); ?>
+                            </small>
+                        <?php } ?>
                     </div>
                     <div class="form-group">
                         <label>Mission</label>

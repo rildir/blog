@@ -18,7 +18,27 @@
                         <?php } ?>
                     </div>
 
-                    <select name="category_id" class="js-example-disabled-results">
+                    <div class="form-group">
+                        <label>Github Link</label>
+                        <input type="text" class="form-control" placeholder="Github Link" name="github_link">
+                        <?php if (isset($form_error)) { ?>
+                            <small class=" input-form-error">
+                                <?php echo form_error("github_link"); ?>
+                            </small>
+                        <?php } ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Url Link</label>
+                        <input type="text" class="form-control" placeholder="Url Link" name="url_link">
+                        <?php if (isset($form_error)) { ?>
+                            <small class=" input-form-error">
+                                <?php echo form_error("url_link"); ?>
+                            </small>
+                        <?php } ?>
+                    </div>
+
+                    <select name="category_id">
                         <?php foreach ($category_items as $category) { ?>
                             <option value="<?php echo $category->id; ?>">
                                 <?php echo $category->title; ?>
@@ -26,11 +46,6 @@
                         <?php } ?>
                     </select>
 
-
-                    <script>
-                        var $disabledResults = $(".js-example-disabled-results");
-                        $disabledResults.select2();
-                    </script>
 
                     <div class="form-group">
                         <label>Description</label>
@@ -52,7 +67,6 @@
                     <div class="form-group">
                         <label>Image</label>
                         <input type="file" class="form-control" placeholder="Image" name="file">
-
                     </div>
                     <button type="submit" class="btn btn-primary btn-md btn-outline">Save</button>
                     <a href="<?php echo base_url("post") ?>" class="btn btn-md btn-danger btn-outline">Cancel</a>

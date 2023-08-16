@@ -85,6 +85,8 @@ class Post extends CI_Controller
                         "title" => $this->input->post("title"),
                         "post_category" => $category->title,
                         "description" => $this->input->post("description"),
+                        "github_link" => $this->input->post("github_link"),
+                        "url_link" => $this->input->post("url_link"),
                         "img_url" => $file_name,
                         "seo_url" => convertToSEO($this->input->post("title"))
                     )
@@ -159,6 +161,8 @@ class Post extends CI_Controller
             $update_data = [
                 "title" => $this->input->post("title"),
                 "description" => $this->input->post("description"),
+                "github_link" => $this->input->post("github_link"),
+                "url_link" => $this->input->post("url_link"),
                 "seo_url" => convertToSEO($this->input->post("title"))
             ];
 

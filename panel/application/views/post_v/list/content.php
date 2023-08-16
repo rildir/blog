@@ -12,6 +12,8 @@
                     <thead>
                         <th>id</th>
                         <th>title</th>
+                        <th>github_link</th>
+                        <th>url_link</th>
                         <th>description</th>
                         <th>img_url</th>
                     </thead>
@@ -25,7 +27,15 @@
                                     <?php echo $item->title; ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->description; ?>
+                                    <?php echo $item->github_link; ?>
+                                </td>
+                                <td>
+                                    <?php echo $item->url_link; ?>
+                                </td>
+                                <td>
+                                    <?php echo substr($item->description, 0, 100); ?>
+                                    <?php if (strlen($item->description) > 100)
+                                        echo "..."; ?>
                                 </td>
                                 <td>
                                     <img class="post_images" src="<?php echo base_url("uploads/post_v/$item->img_url") ?>"

@@ -13,9 +13,10 @@ class Homepage extends CI_Controller
         $this->viewFolder = "homepage";
 
         $this->load->model("homepage_model");
-
         $this->load->model("settings_model");
 
+        $this->load->library("form_validation");
+        $this->load->library('email');
     }
 
     public function index()
@@ -56,6 +57,17 @@ class Homepage extends CI_Controller
         }
     }
 
+    public function contact()
+    {
+        $viewData = new stdClass();
+        $viewData->viewFolder = "contact_v";
+
+        $settings = $this->settings_model->get_all();
+        $viewData->settings = $settings;
+
+        $this->load->view("{$viewData->viewFolder}/index", $viewData);
+
+    }
 
 
 }

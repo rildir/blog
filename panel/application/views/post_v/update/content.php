@@ -18,6 +18,19 @@
                         <input type="text" disabled class="form-control" value="<?php echo $item->seo_url ?>"
                             name="seo_url">
                     </div>
+
+                    <div class="form-group">
+                        <label>Github Link</label>
+                        <input type="text" class="form-control" value="<?php echo $item->github_link ?>"
+                            name="github_link">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Url Link</label>
+                        <input type="text" class="form-control" value="<?php echo $item->url_link ?>" name="url_link">
+                    </div>
+
+
                     <div class="form-group">
                         <label>Description</label>
                         <!-- <input type="text" class="form-control" placeholder="Description" name="description"> -->
