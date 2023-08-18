@@ -12,6 +12,8 @@
                     <thead>
                         <th>id</th>
                         <th>title</th>
+                        <th>category</th>
+                        <th>highlights</th>
                         <th>github_link</th>
                         <th>url_link</th>
                         <th>description</th>
@@ -25,6 +27,12 @@
                                 </td>
                                 <td>
                                     <?php echo $item->title; ?>
+                                </td>
+                                <td>
+                                    <?php echo $item->post_category; ?>
+                                </td>
+                                <td>
+                                    <?php echo $item->highlights; ?>
                                 </td>
                                 <td>
                                     <?php echo $item->github_link; ?>

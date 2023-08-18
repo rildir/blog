@@ -38,13 +38,33 @@
                         <?php } ?>
                     </div>
 
-                    <select name="category_id">
-                        <?php foreach ($category_items as $category) { ?>
-                            <option value="<?php echo $category->id; ?>">
-                                <?php echo $category->title; ?>
-                            </option>
-                        <?php } ?>
-                    </select>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="users_id">Username</label>
+                                <select class="form-control" id="users_id" name="users_id">
+                                    <?php foreach ($users as $user) { ?>
+                                        <option value="<?php echo $user->id; ?>">
+                                            <?php echo $user->full_name; ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="category_id">Category</label>
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <?php foreach ($category_items as $category) { ?>
+                                        <option value="<?php echo $category->id; ?>">
+                                            <?php echo $category->title; ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
 
 
                     <div class="form-group">

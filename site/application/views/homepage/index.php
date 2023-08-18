@@ -6,8 +6,12 @@
 </head>
 
 <body>
+
+	<?php $this->load->view("includes/header"); ?>
+
 	<div class="homepage">
 		<?php $this->load->view("includes/navbar") ?>
+
 		<main class="container">
 			<?php $this->load->view("{$viewFolder}/content"); ?>
 

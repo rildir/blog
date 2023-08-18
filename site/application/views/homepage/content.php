@@ -1,7 +1,7 @@
 <header class="row">
     <section class="col-md-2">
         <div class="social-media">
-            <button><a href="" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            <!-- <button><a href="" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 0.525);">
                         <path
                             d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z">
@@ -29,7 +29,6 @@
 
             <!-- Add the same code for other buttons here -->
 
-
         </div>
     </section>
     <section class="col-md-10">
@@ -39,7 +38,7 @@
                     <h1 class="mt-4">
                         Ahmet Recep Ildır
                     </h1>
-                    <p>​​​​​​​Hi, I am Junior Full-stack developer</p>
+                    <p>​​​​​​​Hi, I am Junior Front-end developer</p>
                     <p>
                         <?php echo $settings[0]->about_us ?>
                     </p>
@@ -82,14 +81,14 @@
 <section class="row myworks mt-12">
     <div class="col-md-2"> </div>
     <div class="col-md-10">
-        <h1>Works</h1>
+        <h1>Highlights</h1>
         <p class="service-text mb-6"></p>
         <div class="myworks-container">
             <div class="myworks-list">
                 <div class="row">
 
                     <?php foreach ($homepageItems as $index => $item) { ?>
-                        <?php if ($index == 0) { ?>
+                        <?php if ($item->highlights == 3) { ?>
                             <div class="col-sm-6 col-lg-8">
                                 <a href="<?php echo "works/" . $item->seo_url ?>">
                                     <div class="image-wrapper">
@@ -103,7 +102,7 @@
                                     </div>
                                 </a>
                             </div>
-                        <?php } else { ?>
+                        <?php } elseif ($item->highlights == 2) { ?>
                             <div class=" col-sm-6 col-lg-4">
                                 <a href="<?php echo "works/" . $item->seo_url ?>">
                                     <div class="image-wrapper">
@@ -119,27 +118,6 @@
                             </div>
                         <?php } ?>
                     <?php } ?>
-
-                    <!-- <?php foreach ($homepageItems as $index => $item) { ?>
-                        <?php if ($item->id == 70) { ?>
-                            <div class="col-sm-6 col-lg-8">
-                            <?php } else { ?>
-                                <div class="col-sm-6 col-lg-4">
-                                <?php } ?>
-                                <a href="<?php echo "works/" . $item->seo_url ?>">
-                                    <div class="image-wrapper">
-                                        <img class="myworks-photo"
-                                            src="../panel/uploads/post_v/<?php echo $item->img_url; ?>" alt="bozuk">
-                                        <div class="image-description">
-                                            <p>
-                                                <?php echo $item->title; ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php } ?> -->
-
                 </div>
             </div>
         </div>
@@ -166,6 +144,119 @@
                 </p>
             </div>
             <img class="w-100" src="<?php echo base_url("assets/image/logos.png") ?>" alt="logos">
+        </div>
+    </div>
+</section>
+<section class="row myworks mt-12">
+    <div class="col-md-2"> </div>
+    <div class="col-md-10">
+        <h1>JavaScript</h1>
+        <p class="service-text mb-6"></p>
+        <div class="myworks-container">
+            <div class="myworks-list">
+                <div class="row">
+
+                    <?php foreach ($latest_javascript_posts as $index => $item) { ?>
+                        <?php if ($item->post_category_id == 10) { ?>
+                            <div class=" col-sm-6 col-lg-3">
+                                <a href="<?php echo "works/" . $item->seo_url ?>">
+                                    <div class="image-wrapper">
+                                        <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
+                                            alt="bozuk">
+                                        <div class="image-description-js">
+                                            <p>
+                                                <?php echo $item->title; ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="createdAt">
+                                    <p>
+                                        <?php echo $item->username; ?>
+                                    </p>
+                                    <small>
+                                        <?php echo convert_to_utc_plus_3($item->createdAt); ?>
+                                    </small>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="row myworks mt-12">
+    <div class="col-md-2"> </div>
+    <div class="col-md-10">
+        <h1>PHP</h1>
+        <p class="service-text mb-6"></p>
+        <div class="myworks-container">
+            <div class="myworks-list">
+                <div class="row">
+                    <?php foreach ($latest_php_posts as $index => $item) { ?>
+                        <div class=" col-sm-6 col-lg-3">
+                            <a href="<?php echo "works/" . $item->seo_url ?>">
+                                <div class="image-wrapper">
+                                    <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
+                                        alt="bozuk">
+                                    <div class="image-description-php">
+                                        <p>
+                                            <?php echo $item->title; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="createdAt">
+                                <p>
+                                    <?php echo $item->username; ?>
+                                </p>
+                                <small>
+                                    <?php echo convert_to_utc_plus_3($item->createdAt); ?>
+                                </small>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="row myworks mt-12">
+    <div class="col-md-2"> </div>
+    <div class="col-md-10">
+        <h1>HTML & CSS</h1>
+        <p class="service-text mb-6"></p>
+        <div class="myworks-container">
+            <div class="myworks-list">
+                <div class="row">
+                    <?php foreach ($latest_html_css_posts as $index => $item) { ?>
+                        <div class=" col-sm-6 col-lg-3">
+                            <a href="<?php echo "works/" . $item->seo_url ?>">
+                                <div class="image-wrapper">
+                                    <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
+                                        alt="bozuk">
+                                    <div class="image-description-html-css">
+                                        <p>
+                                            <?php echo $item->title; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="createdAt">
+                                <p>
+                                    <?php echo $item->username; ?>
+                                </p>
+                                <small>
+                                    <?php echo convert_to_utc_plus_3($item->createdAt); ?>
+                                </small>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
     </div>
 </section>

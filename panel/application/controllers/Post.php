@@ -12,6 +12,7 @@ class Post extends CI_Controller
         $this->viewFolder = "post_v";
         $this->load->model("post_model");
         $this->load->model("category_model");
+        $this->load->model("user_model");
 
         if (!get_active_user()) {
             redirect(base_url("login"));
@@ -24,10 +25,8 @@ class Post extends CI_Controller
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
 
-        $items = $this->post_model->get_all();
+        $items = $this->post_model->get_all_with_category_and_user();
         $viewData->items = $items;
-
-
 
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
@@ -36,6 +35,13 @@ class Post extends CI_Controller
     public function new_post()
     {
         $viewData = new stdClass();
+
+        $items = $this->post_model->get_all_with_category_and_user();
+        $viewData->items = $items;
+
+        /** Tablodan Verilerin Getirilmesi.. */
+        $users = $this->user_model->get_all();
+        $viewData->users = $users;
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "add";
@@ -48,16 +54,20 @@ class Post extends CI_Controller
 
     public function save()
     {
+
         $this->load->library("form_validation");
 
-        $this->form_validation->set_rules("title", "Title", "required|trim");
+        $this->form_validation->set_rules("title", "Title", "required|trim|is_unique[post.title]");
+
         $this->form_validation->set_rules("description", "Description", "required|trim");
 
         $this->form_validation->set_message(
             array(
-                "required" => "<b>{field}</b> can't be empty"
+                "required" => "<b>{field}</b> can't be empty",
+                "is_unique" => "<b>{field}</b> must be unique"
             )
         );
+
 
         $validate = $this->form_validation->run();
 
@@ -80,18 +90,22 @@ class Post extends CI_Controller
 
                 $category = $this->category_model->get(array('id' => $category_id));
 
+                $users_id = $this->input->post("users_id");
+
+                $users = $this->user_model->get(array('id' => $users_id));
+
                 $insert = $this->post_model->add(
                     array(
                         "title" => $this->input->post("title"),
-                        "post_category" => $category->title,
+                        "post_category_id" => $category->id,
                         "description" => $this->input->post("description"),
                         "github_link" => $this->input->post("github_link"),
                         "url_link" => $this->input->post("url_link"),
                         "img_url" => $file_name,
-                        "seo_url" => convertToSEO($this->input->post("title"))
+                        "seo_url" => convertToSEO($this->input->post("title")),
+                        "user_post_id" => $users->id
                     )
                 );
-
 
                 if ($insert) {
                     redirect("post");
@@ -101,11 +115,9 @@ class Post extends CI_Controller
             }
         } else {
             $viewData = new stdClass();
-
             $viewData->viewFolder = $this->viewFolder;
             $viewData->subViewFolder = "add";
-            $viewData->form_error = "";
-
+            $viewData->form_error = validation_errors(); // Hata mesajlarını al
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }
     }
@@ -120,7 +132,6 @@ class Post extends CI_Controller
                 "id" => $id,
             )
         );
-
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "update";
         $viewData->item = $item;
@@ -192,6 +203,7 @@ class Post extends CI_Controller
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }
+
 
     }
 
