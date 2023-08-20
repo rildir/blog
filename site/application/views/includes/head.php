@@ -9,3 +9,4 @@
         <?php echo $settings[0]->title; ?>
     </title>
 <?php endif; ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

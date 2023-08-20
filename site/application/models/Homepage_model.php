@@ -62,6 +62,24 @@ class Homepage_model extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function getWorkIndex($workId)
+    {
+        // Burada veritabanınıza sorgu yaparak, belirli bir içeriğin indexini döndürebilirsiniz.
+        // Örnek bir kod yapısı:
+        $this->db->select('id');
+        $this->db->from($this->tableName);
+        $this->db->where('id', $workId);
+        $query = $this->db->get();
+
+        $result = $query->row();
+
+        if ($result) {
+            return $result->id;
+        }
+
+        return -1; // İçerik bulunamadıysa -1 dönebilirsiniz.
+    }
+
 
     public function add($data = array())
     {

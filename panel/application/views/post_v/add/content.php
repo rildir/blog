@@ -42,7 +42,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="users_id">Username</label>
-                                <select class="form-control" id="users_id" name="users_id">
+                                <select class="form-control custom-select" id="users_id" name="users_id">
                                     <?php foreach ($users as $user) { ?>
                                         <option value="<?php echo $user->id; ?>">
                                             <?php echo $user->full_name; ?>
@@ -54,7 +54,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="category_id">Category</label>
-                                <select name="category_id" id="category_id" class="form-control">
+                                <select name="category_id" id="category_id" class="form-control custom-select">
                                     <?php foreach ($category_items as $category) { ?>
                                         <option value="<?php echo $category->id; ?>">
                                             <?php echo $category->title; ?>
@@ -64,6 +64,7 @@
                             </div>
                         </div>
                     </div>
+
 
 
 
@@ -96,3 +97,8 @@
     </div>
 </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $(".custom-select").select2();
+    });
+</script>

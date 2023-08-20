@@ -12,3 +12,30 @@ th {
   height: 120px;
   object-fit: cover;
 }
+
+/* Özel seçim kutusu (select2) genel stil */
+.select2-container {
+  width: 100%;
+}
+
+/* Seçim kutusu seçeneklerinin arka plan rengini değiştirme */
+.select2-results__option {
+  background-color: #fafafa;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #282828;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-horizontal {
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #ccc;
+  border-radius: 5px;
+}

@@ -19,7 +19,7 @@ font-style: italic; */
 
 @font-face {
 	font-family: "NCS Radhiumz";
-	src: url("fonts/NCSRadhiumz.ttf");
+	src: url("../fonts/NCSRadhiumz.ttf");
 }
 
 * {
@@ -39,38 +39,29 @@ p {
 	margin: 0 !important;
 }
 
-.links {
+.mt-12 {
+	margin-top: 6em !important;
+}
+
+.mt-6 {
+	margin-top: 3em !important;
+}
+
+.mt-8 {
+	margin-top: 4em !important;
+}
+
+.mb-6 {
+	margin-bottom: 2.5rem !important;
+}
+
+.center {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
-.links button,
-.mail button,
-.social-media button,
-.social-media-footer button {
-	display: flex;
-	background-color: transparent;
-}
-
-.mail button,
-.mail .bx {
-	line-height: 30px;
-}
-
-.mail-p {
-	font-size: 13px;
-}
-
-.mail .bx {
-	margin-right: 4px;
-}
-
-.links a:first-child {
-	margin-right: 10px;
-}
-
-.logo {
-	object-fit: cover;
+title {
+	text-transform: capitalize;
 }
 
 .homepage {
@@ -100,11 +91,55 @@ p {
 	border-radius: 0 0 10px 10px;
 }
 
+.links {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.links a {
+	display: flex;
+	background-color: transparent;
+	color: #2e2e2e;
+}
+
+.links svg {
+	margin-top: 4px;
+	margin-right: 4px;
+	color: #2e2e2e !important;
+}
+
+.links button,
+.social-media button,
+.social-media-footer button {
+	display: flex;
+	background-color: transparent;
+}
+
+.mail a,
+.wp a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #2e2e2e;
+}
+
+.mail svg {
+	margin-right: 4px;
+}
+
+.links a:first-child {
+	margin-right: 10px;
+}
+
+.logo {
+	object-fit: cover;
+}
+
 .social-media {
 	margin-top: 16rem;
 }
 
-.social-media button {
+.social-media-footer button {
 	margin: 1rem;
 }
 
@@ -148,25 +183,24 @@ p {
 	border-radius: 5px !important;
 }
 
-.myworks-photo {
-	height: 300px;
-	border-radius: 5px !important;
+.image-wrapper:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+	transition: all ease-in 0.2s;
+	scale: 1.01;
 }
 
-.works-single img {
-	max-height: 500px;
-	padding: 4rem 0 2rem;
+.image-wrapper:hover .myworks-photo {
+	filter: brightness(60%);
 }
 
-.myworks-photo,
-.works-single img {
-	display: block;
-	width: 100%;
-	object-fit: cover;
-}
-
-.works-single-desc {
-	padding: 2rem 0;
+.image-wrapper:hover .image-description,
+.image-wrapper:hover .image-description-php,
+.image-wrapper:hover .image-description-html-css,
+.image-wrapper:hover .image-description-js {
+	/* transition: opacity 0.3s ease, transform 0.3s ease; */
+	transition: all 0.5s ease 0s;
+	opacity: 1;
+	transform: translateY(0);
 }
 
 .image-description,
@@ -193,27 +227,10 @@ p {
 	justify-content: center;
 	align-items: center;
 	height: 100%;
-	font-size: 1.238em;
-}
-
-.image-wrapper:hover {
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-	transition: all ease-in 0.2s;
-	scale: 1.01;
-}
-
-.image-wrapper:hover .myworks-photo {
-	filter: brightness(60%);
-}
-
-.image-wrapper:hover .image-description,
-.image-wrapper:hover .image-description-php,
-.image-wrapper:hover .image-description-html-css,
-.image-wrapper:hover .image-description-js {
-	/* transition: opacity 0.3s ease, transform 0.3s ease; */
-	transition: all 0.5s ease 0s;
-	opacity: 1;
-	transform: translateY(0);
+	font-size: 0.968em;
+	padding: 0 1rem;
+	text-align: center;
+	margin-top: 1rem !important;
 }
 
 .image-description {
@@ -248,13 +265,76 @@ p {
 	);
 }
 
-.center {
-	display: flex;
-	justify-content: center;
+.myworks-photo {
+	height: 300px;
+	border-radius: 5px !important;
+	display: block;
+	width: 100%;
+	object-fit: cover;
 }
 
-title {
-	text-transform: capitalize;
+.works-single {
+	padding: 2.2rem 2rem !important;
+}
+
+.works-single-header {
+	padding: 0.5rem 0 2rem;
+}
+
+.works-single-desc {
+	padding: 4rem 0rem;
+	text-align: justify;
+}
+.new-post-container h5 {
+	background-color: #ffa653;
+	color: #fff;
+	font-size: 15px;
+	padding: 0.5rem 1rem;
+	margin: 0 !important;
+}
+
+.works-single-container {
+	text-align: center;
+	padding: 3rem;
+}
+
+.new-post-container {
+	background-color: hsla(33, 78%, 91%, 0.471);
+}
+
+.new-post {
+	position: relative;
+}
+
+.new-post p {
+	color: #2e2e2e;
+	font-size: 14px;
+	padding: 0.6rem 1rem;
+}
+
+.new-post:hover {
+	background-color: hsla(33, 78%, 91%, 0.671);
+}
+
+.new-post small {
+	color: hsl(348, 83%, 37%);
+	font-weight: bold;
+	display: block;
+}
+
+.works-single img {
+	height: 100%;
+	max-width: 100%;
+}
+
+.works-single h1,
+.works-single p {
+	font-family: "Poppins", sans-serif !important;
+}
+
+.works-single h1 {
+	text-align: center;
+	padding: 0rem 4rem 3rem;
 }
 
 @media (max-width: 992px) {
@@ -277,28 +357,6 @@ title {
 	}
 }
 
-.links svg {
-	margin-top: 4px;
-	margin-right: 4px;
-	color: #2e2e2e !important;
-}
-
-.mt-12 {
-	margin-top: 6em !important;
-}
-
-.mt-6 {
-	margin-top: 3em !important;
-}
-
-.mt-8 {
-	margin-top: 4em !important;
-}
-
-.mb-6 {
-	margin-bottom: 2.5rem !important;
-}
-
 .service-text::after {
 	content: "";
 	display: block;
@@ -318,10 +376,6 @@ title {
 	box-shadow: 0 4px 8px rgba(207, 207, 207, 0.308);
 }
 
-.logos-title {
-	padding: 1rem 3rem;
-}
-
 .logos-container p {
 	font-size: 0.875em;
 	color: #333;
@@ -334,14 +388,10 @@ title {
 	border-radius: 5px;
 }
 
-.works-single h1,
-.works-single p {
-	font-family: "Poppins", sans-serif !important;
+.logos-title {
+	padding: 1rem 3rem;
 }
 
-.social-media-footer button {
-	margin: 1rem;
-}
 .contact-title {
 	font-family: "NCS Radhiumz";
 	margin-bottom: 2rem;
@@ -359,4 +409,51 @@ title {
 .createdAt small {
 	font-size: 12px;
 	color: #bbb;
+}
+
+.social-icon path {
+	transition: fill 0.3s ease-in-out;
+}
+
+.social-icon:hover path {
+	fill: hsl(0, 100%, 60%);
+}
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: hsl(0, 0%, 22%);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-horizontal {
+	height: 10px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+	background-color: #ccc;
+	border-radius: 5px;
+}
+
+.move {
+	display: flex;
+	font-size: 20px;
+	justify-content: space-between;
+	margin: 0 1.5rem;
+}
+
+.gy-100 {
+	--bs-gutter-y: -0.7rem !important;
+}
+
+.g-1,
+.gx-1 {
+	--bs-gutter-x: 0.5rem !important;
+}
+
+#bottom-section {
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }

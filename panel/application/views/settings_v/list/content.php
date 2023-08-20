@@ -17,7 +17,7 @@
                         <th>phone</th>
                         <th>email</th>
                         <th>facebook</th>
-                        <th>onstagram</th>
+                        <th>instagram</th>
                         <th>github</th>
                         <th>linkedin</th>
                         <th>twitter</th>
@@ -28,13 +28,43 @@
                         <?php foreach ($items as $item) { ?>
                             <tr>
                                 <td>
-                                    <?php echo $item->title; ?>
+                                    <?php echo substr($item->title, 0, 10); ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->about_us; ?>
+                                    <?php echo substr($item->about_us, 0, 40); ?>
+                                    <?php if (strlen($item->about_us) > 40) { ?>
+                                        <a href="#" data-toggle="modal" data-target="#urlModal-<?php echo $item->id; ?>">...
+                                            More</a>
+                                        <div class="modal fade" id="urlModal-<?php echo $item->id; ?>" tabindex="-1"
+                                            role="dialog" aria-labelledby="urlModalLabel-<?php echo $item->id; ?>">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 style="display: inline-block; margin: 0; line-height: 1.428571429;"
+                                                            id="urlModalLabel-<?php echo $item->id; ?>">URL
+                                                            Link</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <?php echo $item->about_us; ?>
+                                                        <a href="<?php echo base_url("settings/update_settings/$item->id") ?>">
+                                                            <button type="button" class="btn btn-xs btn-warning"
+                                                                style="display:block; margin-top: 1.2rem;">
+                                                                <i class="fa fa-pencil-square-o"></i>
+                                                                Edit
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->mission; ?>
+                                    <?php echo substr($item->mission, 0, 10); ?>
                                 </td>
                                 <td>
                                     <?php echo $item->vision; ?>
@@ -46,25 +76,25 @@
                                     <?php echo $item->phone; ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->email; ?>
+                                    <?php echo substr($item->email, 0, 10); ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->facebook; ?>
+                                    <?php echo substr($item->facebook, 0, 10); ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->instagram; ?>
+                                    <?php echo substr($item->instagram, 0, 10); ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->github; ?>
+                                    <?php echo substr($item->github, 0, 10); ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->linkedin; ?>
+                                    <?php echo substr($item->linkedin, 0, 10); ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->twitter; ?>
+                                    <?php echo substr($item->twitter, 0, 10); ?>
                                 </td>
                                 <td>
-                                    <?php echo $item->youtube; ?>
+                                    <?php echo substr($item->youtube, 0, 10); ?>
                                 </td>
                                 <td>
                                     <a href="<?php echo base_url("settings/update_settings/$item->id") ?>">

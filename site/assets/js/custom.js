@@ -1,19 +1,25 @@
-// $(document).ready(function () {
-//   $(".remove-btn").click(function () {
-//     $data_url = $(this).data("url");
+// const workLink = document.getElementById('work-link');
+// const worksSection = document.getElementById('works');
 
-//     Swal.fire({
-//       title: "Are you sure?",
-//       text: "You won't be able to revert this!",
-//       icon: "warning",
-//       showCancelButton: true,
-//       confirmButtonColor: "#3085d6",
-//       cancelButtonColor: "#d33",
-//       confirmButtonText: "Yes, delete it!",
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         window.location.href = $data_url;
-//       }
+// workLink.addEventListener('click', function (event) {
+//     event.preventDefault(); // Prevent default link behavior
+
+//     const targetOffset = worksSection.getBoundingClientRect().top + window.pageYOffset;
+//     const targetScrollPosition = targetOffset - 100; // Scroll 100 pixels above the target
+
+//     window.scrollTo({
+//         top: targetScrollPosition,
+//         behavior: 'smooth' // Use smooth scrolling behavior
 //     });
-//   });
 // });
+
+$(document).ready(function () {
+	// Bağlantıya tıklama olayını ele al
+	$("#scroll-to-top").click(function () {
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	});
+
+	$("#scroll-to-bottom").click(function () {
+		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+	});
+});
