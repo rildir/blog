@@ -41,8 +41,8 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-8 portfolio-photo"><img
-                    src="<?php echo base_url("assets/image/1ReadyPlayerMe-Avatar.png") ?>" alt=""></div>
+            <div class="col-md-8 portfolio-photo"><img src="<?php echo base_url("assets/image/avatar.webp") ?>" alt="">
+            </div>
         </div>
     </section>
 </header>
@@ -54,14 +54,13 @@
         <h1>Highlights</h1>
         <p class="service-text mb-6"></p>
         <div class="row gx-1 gy-100">
-
             <?php foreach ($homepageItems as $index => $item) { ?>
                 <?php if ($item->highlights == 4) { ?>
                     <div class="col-md-8">
                         <a href="<?php echo "works/" . $item->seo_url ?>">
                             <div class="image-wrapper">
                                 <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
-                                    alt="bozuk">
+                                    alt="bozuk" loading="lazy">
                                 <div class="image-description">
                                     <p>
                                         <?php echo $item->title; ?>
@@ -75,7 +74,7 @@
                         <a href="<?php echo "works/" . $item->seo_url ?>">
                             <div class="image-wrapper">
                                 <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
-                                    alt="bozuk">
+                                    alt="bozuk" loading="lazy">
                                 <div class="image-description">
                                     <p>
                                         <?php echo $item->title; ?>
@@ -89,7 +88,7 @@
                         <a href="<?php echo "works/" . $item->seo_url ?>">
                             <div class="image-wrapper">
                                 <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
-                                    alt="bozuk">
+                                    alt="bozuk" loading="lazy">
                                 <div class="image-description">
                                     <p>
                                         <?php echo $item->title; ?>
@@ -103,7 +102,7 @@
                         <a href="<?php echo "works/" . $item->seo_url ?>">
                             <div class="image-wrapper">
                                 <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
-                                    alt="bozuk">
+                                    alt="bozuk" loading="lazy">
                                 <div class="image-description">
                                     <p>
                                         <?php echo $item->title; ?>
@@ -136,7 +135,7 @@
                     infrastructure.
                 </p>
             </div>
-            <img class="w-100" src="<?php echo base_url("assets/image/logos.png") ?>" alt="logos">
+            <img class="w-100" src="<?php echo base_url("assets/image/logos.webp") ?>" alt="logos">
         </div>
     </div>
 </section>

@@ -61,9 +61,23 @@
                     </div>
                 </div>
             </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <?php foreach ($new_post as $index => $post_item) { ?>
+                        <div class="swiper-slide">
+                            <a href="<?php echo $post_item->seo_url ?>">
+                                <img src="../../panel/uploads/post_v/<?php echo $post_item->img_url; ?>" alt="bozuk1">
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
             <?php $this->load->view("includes/footer"); ?>
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <?php $this->load->view("includes/include_script"); ?>
 </body>
 
