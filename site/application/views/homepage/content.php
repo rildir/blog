@@ -62,9 +62,14 @@
                                 <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
                                     alt="bozuk" loading="lazy">
                                 <div class="image-description">
-                                    <p>
-                                        <?php echo $item->title; ?>
-                                    </p>
+                                    <div>
+                                        <h5>
+                                            <?php echo $item->title; ?>
+                                        </h5>
+                                        <p>
+                                            <?php echo substr($item->description, 0, 150) ?>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -76,9 +81,14 @@
                                 <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
                                     alt="bozuk" loading="lazy">
                                 <div class="image-description">
-                                    <p>
-                                        <?php echo $item->title; ?>
-                                    </p>
+                                    <div>
+                                        <h5>
+                                            <?php echo $item->title; ?>
+                                        </h5>
+                                        <p>
+                                            <?php echo substr($item->description, 0, 150) ?>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -90,9 +100,14 @@
                                 <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
                                     alt="bozuk" loading="lazy">
                                 <div class="image-description">
-                                    <p>
-                                        <?php echo $item->title; ?>
-                                    </p>
+                                    <div>
+                                        <h5>
+                                            <?php echo $item->title; ?>
+                                        </h5>
+                                        <p>
+                                            <?php echo substr($item->description, 0, 100) ?>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -104,9 +119,14 @@
                                 <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
                                     alt="bozuk" loading="lazy">
                                 <div class="image-description">
-                                    <p>
-                                        <?php echo $item->title; ?>
-                                    </p>
+                                    <div>
+                                        <h5>
+                                            <?php echo $item->title; ?>
+                                        </h5>
+                                        <p>
+                                            <?php echo substr($item->description, 0, 100) ?>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -139,105 +159,125 @@
         </div>
     </div>
 </section>
-<section class="row myworks mt-12">
+
+
+<section class="row mt-12">
     <div class="col-md-2"> </div>
     <div class="col-md-10">
         <h1>JavaScript</h1>
         <p class="service-text mb-6"></p>
         <div class="row">
-
-            <?php foreach ($latest_javascript_posts as $index => $item) { ?>
-                <?php if ($item->post_category_id == 10) { ?>
-                    <div class=" col-sm-6 col-lg-3">
-                        <a href="<?php echo "works/" . $item->seo_url ?>">
-                            <div class="image-wrapper">
-                                <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
-                                    loading="lazy" alt="bozuk">
-                                <div class="image-description-js">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <?php foreach ($items as $index => $item) { ?>
+                        <?php if ($item->post_category_id == 10) { ?>
+                            <div class="swiper-slide ">
+                                <a href="<?php echo "works/" . $item->seo_url ?>">
+                                    <div class="image-wrapper">
+                                        <img src="../panel/uploads/post_v/<?php echo $item->img_url ?>" alt="">
+                                        <div class="image-description-post">
+                                            <p>
+                                                <?php echo $item->title; ?>
+                                                <?php echo $item->category; ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="createdAt">
                                     <p>
-                                        <?php echo $item->title; ?>
-                                        <?php echo $item->category; ?>
+                                        <?php echo $item->username; ?>
                                     </p>
+                                    <small>
+                                        <?php echo convert_to_utc_plus_3($item->createdAt); ?>
+                                    </small>
                                 </div>
                             </div>
-                        </a>
-                        <div class="createdAt">
-                            <p>
-                                <?php echo $item->username; ?>
-                            </p>
-                            <small>
-                                <?php echo convert_to_utc_plus_3($item->createdAt); ?>
-                            </small>
-                        </div>
-                    </div>
-                <?php } ?>
-            <?php } ?>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
     </div>
 </section>
-
-
-<section class="row myworks mt-12">
+<section class="row mt-12">
     <div class="col-md-2"> </div>
     <div class="col-md-10">
-        <h1>PHP</h1>
+        <h1>PHP </h1>
         <p class="service-text mb-6"></p>
         <div class="row">
-            <?php foreach ($latest_php_posts as $index => $item) { ?>
-                <div class=" col-sm-6 col-lg-3">
-                    <a href="<?php echo "works/" . $item->seo_url ?>">
-                        <div class="image-wrapper">
-                            <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?>"
-                                loading="lazy" alt="bozuk">
-                            <div class="image-description-php">
-                                <p>
-                                    <?php echo $item->title; ?>
-                                </p>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <?php foreach ($items as $index => $item) { ?>
+                        <?php if ($item->post_category_id == 7) { ?>
+                            <div class="swiper-slide ">
+                                <a href="<?php echo "works/" . $item->seo_url ?>">
+                                    <div class="image-wrapper">
+                                        <img src="../panel/uploads/post_v/<?php echo $item->img_url ?>" alt="">
+                                        <div class="image-description-post">
+                                            <p>
+                                                <?php echo $item->title; ?>
+                                                <?php echo $item->category; ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="createdAt">
+                                    <p>
+                                        <?php echo $item->username; ?>
+                                    </p>
+                                    <small>
+                                        <?php echo convert_to_utc_plus_3($item->createdAt); ?>
+                                    </small>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <div class="createdAt">
-                        <p>
-                            <?php echo $item->username; ?>
-                        </p>
-                        <small>
-                            <?php echo convert_to_utc_plus_3($item->createdAt); ?>
-                        </small>
-                    </div>
+                        <?php } ?>
+                    <?php } ?>
                 </div>
-            <?php } ?>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
     </div>
 </section>
-<section class="row myworks mt-12">
+<section class="row mt-12">
     <div class="col-md-2"> </div>
     <div class="col-md-10">
-        <h1>HTML & CSS</h1>
+        <h1>HTML & CSS </h1>
         <p class="service-text mb-6"></p>
         <div class="row">
-            <?php foreach ($latest_html_css_posts as $index => $item) { ?>
-                <div class=" col-sm-6 col-lg-3">
-                    <a href="<?php echo "works/" . $item->seo_url ?>">
-                        <div class="image-wrapper">
-                            <img class="myworks-photo" src="../panel/uploads/post_v/<?php echo $item->img_url; ?> "
-                                loading="lazy" alt="bozuk">
-                            <div class="image-description-html-css">
-                                <p>
-                                    <?php echo $item->title; ?>
-                                </p>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <?php foreach ($items as $index => $item) { ?>
+                        <?php if ($item->post_category_id == 32) { ?>
+                            <div class="swiper-slide ">
+                                <a href="<?php echo "works/" . $item->seo_url ?>">
+                                    <div class="image-wrapper">
+                                        <img src="../panel/uploads/post_v/<?php echo $item->img_url ?>" alt="">
+                                        <div class="image-description-post">
+                                            <p>
+                                                <?php echo $item->title; ?>
+                                                <?php echo $item->category; ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="createdAt">
+                                    <p>
+                                        <?php echo $item->username; ?>
+                                    </p>
+                                    <small>
+                                        <?php echo convert_to_utc_plus_3($item->createdAt); ?>
+                                    </small>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <div class="createdAt">
-                        <p>
-                            <?php echo $item->username; ?>
-                        </p>
-                        <small>
-                            <?php echo convert_to_utc_plus_3($item->createdAt); ?>
-                        </small>
-                    </div>
+                        <?php } ?>
+                    <?php } ?>
                 </div>
-            <?php } ?>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
     </div>
 </section>

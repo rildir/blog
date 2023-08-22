@@ -39,12 +39,12 @@ var swiper = new Swiper(".mySwiper", {
 			spaceBetween: 20,
 		},
 		768: {
-			slidesPerView: 4,
-			spaceBetween: 30,
+			slidesPerView: 3,
+			spaceBetween: 25,
 		},
 		1024: {
-			slidesPerView: 5,
-			spaceBetween: 40,
+			slidesPerView: 4,
+			spaceBetween: 30,
 		},
 	},
 });

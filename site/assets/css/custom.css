@@ -196,9 +196,7 @@ title {
 }
 
 .image-wrapper:hover .image-description,
-.image-wrapper:hover .image-description-php,
-.image-wrapper:hover .image-description-html-css,
-.image-wrapper:hover .image-description-js {
+.image-wrapper:hover .image-description-post {
 	/* transition: opacity 0.3s ease, transform 0.3s ease; */
 	transition: all 0.5s ease 0s;
 	opacity: 1;
@@ -206,9 +204,7 @@ title {
 }
 
 .image-description,
-.image-description-js,
-.image-description-html-css,
-.image-description-php {
+.image-description-post {
 	border-radius: 0 0 5px 5px !important;
 	position: absolute;
 	bottom: 0;
@@ -217,52 +213,46 @@ title {
 	width: 100%;
 	padding: 10px;
 	transition: opacity 0.3s ease, transform 0.3s ease;
-	transform: translateY(100%);
+	transform: translateY(75%);
 	height: 100%;
 }
 
-.image-description p,
-.image-description-js p,
-.image-description-html-css p,
-.image-description-php p {
+.image-description h5,
+.image-description-post p {
+	height: 100%;
+	padding: 0 1rem;
+	font-family: "NCS Radhiumz";
+	margin-top: 1rem !important;
+}
+
+.image-description h5 {
+	font-size: 1.168em;
+	padding: 0.5rem 1.5rem;
+}
+
+.image-description p {
+	padding: 0.5rem 1.5rem;
+}
+
+.image-description-post p {
+	font-size: 0.7em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
-	font-size: 0.968em;
-	padding: 0 1rem;
-	text-align: center;
-	margin-top: 1rem !important;
 }
 
 .image-description {
 	background-image: linear-gradient(
-		1deg,
+		0deg,
 		rgb(241, 177, 80),
 		hsla(0, 100%, 80%, 0)
 	);
 }
 
-.image-description-js {
+.image-description-post {
 	background-image: linear-gradient(
 		1deg,
-		hsl(348, 83%, 47%),
-		hsla(0, 100%, 80%, 0)
-	);
-}
-
-.image-description-php {
-	background-image: linear-gradient(
-		1deg,
-		hsl(240, 100%, 70%),
-		hsla(0, 100%, 80%, 0)
-	);
-}
-
-.image-description-html-css {
-	background-image: linear-gradient(
-		1deg,
-		hsl(200, 83%, 70%),
+		hsl(349, 62%, 22%),
 		hsla(0, 100%, 80%, 0)
 	);
 }
@@ -510,7 +500,6 @@ title {
 .swiper {
 	width: 100%;
 	height: 100%;
-	display: none !important;
 }
 
 .swiper-slide {
@@ -531,6 +520,18 @@ title {
 
 .social-media-footer-md {
 	display: none;
+}
+
+.footer-swiper {
+	display: none;
+}
+
+.wp-mobil {
+	display: none;
+}
+
+.wp {
+	display: block;
 }
 
 @media (max-width: 1200px) {
@@ -579,6 +580,10 @@ title {
 	.homepage {
 		padding: 0 !important;
 	}
+
+	.footer-swiper {
+		display: block;
+	}
 }
 
 @media (max-width: 768px) {
@@ -589,16 +594,26 @@ title {
 	.works-single h1 {
 		font-size: 24px;
 	}
+
+	.wp-mobil {
+		display: block;
+	}
+
+	.wp {
+		display: none;
+	}
 }
 
 /* swiper */
 
 .swiper-button-next {
-	right: 5px !important;
+	right: 12px !important;
+	top: 150px !important;
 }
 
 .swiper-button-prev {
-	left: 5px !important;
+	left: 12px !important;
+	top: 150px !important;
 }
 
 .swiper-button-next,
